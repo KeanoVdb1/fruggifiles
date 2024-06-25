@@ -1,0 +1,72 @@
+{
+    "shop" : {
+        "currency": "USD",
+        "language": "cn",
+        "weightUnit": "kg"
+    },   
+    "catalog": {
+        "product": {
+            "image": {
+                "thumbnail": {
+                    "width": 100,
+                    "height": 100
+                },
+                "listing": {
+                    "width": 300,
+                    "height": 300
+                },
+                "single": {
+                    "width": 500,
+                    "height": 500
+                }
+            }
+        },
+        "showOutOfStockProduct": false
+    },
+    "system": {
+        "theme": "eve",
+        "extensions": [
+            {
+                "name": "google_login",
+                "resolve": "node_modules/@evershop/google_login",
+                "enabled": true,
+                "priority": 10
+            },
+            {
+                "name": "resend",
+                "resolve": "node_modules/@evershop/resend",
+                "enabled": true,
+                "priority": 10
+            } 
+        ]
+    },
+    "google_login": {
+        "client_id": "350253262008-0g25h7ck7c41lmlmfiu18e5ueg4qabju.apps.googleusercontent.com",
+        "client_secret": "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",
+        "success_redirect_url": "http://localhost:3000",
+        "failure_redirect_url": "http://localhost:3000/account/login"
+    },
+
+    "resend": {
+        "from": "dontreply@fruggi.com",
+        "events": {
+          "order_placed": {
+            "subject": "Order Confirmation",
+            "enabled": true,
+            "templatePath": "config/emails/order_confirmation.html" 
+          },
+          "reset_password": {
+            "subject": "Reset Password",
+            "enabled": true,
+            "templatePath": "config/emails/reset_password.html"
+          },
+          "customer_registered": {
+            "subject": "Welcome to EverShop",
+            "enabled": true,
+            "templatePath": "config/emails/welcome.html" 
+          }
+        }
+      }
+
+
+}
